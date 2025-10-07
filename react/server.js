@@ -45,22 +45,17 @@ app.use('*all', async (req, res) => {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      // TODO: Load the server entry module and get the render function
-      // Hint: Use vite.ssrLoadModule() to load '/src/entry-server.jsx'
-      render = null // Replace this line
+      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
       template = templateHtml
-      // TODO: Import the built server entry module and get the render function
-      // Hint: Import from './dist/server/entry-server.js'
-      render = null // Replace this line
+      render = (await import('./dist/server/entry-server.js')).render
     }
 
-    // TODO: Call the render function with the URL to get the rendered content
-    const rendered = null // Replace this line
+    const rendered = await render(url)
 
-    // TODO: Replace the placeholders in the HTML template with the rendered content
-    // Hint: Replace <!--app-head--> with rendered.head and <!--app-html--> with rendered.html
     const html = template
+      .replace(`<!--app-head-->`, rendered.head ?? '')
+      .replace(`<!--app-html-->`, rendered.html ?? '')
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
