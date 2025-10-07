@@ -46,12 +46,12 @@ app.use('*all', async (req, res) => {
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       // TODO: Load the server entry module and get the render function
-      // Hint: Use vite.ssrLoadModule() to load '/src/entry-server.js'
+      // Hint: Use vite.ssrLoadModule() to load '/src/entry-server.js' — https://vite.dev/guide/ssr.html
       render = null // Replace this line
     } else {
       template = templateHtml
       // TODO: Import the built server entry module and get the render function
-      // Hint: Import from './dist/server/entry-server.js'
+      // Hint: Use a dynamic import() to load the built server entry from ./dist/server/
       render = null // Replace this line
     }
 
@@ -59,7 +59,6 @@ app.use('*all', async (req, res) => {
     const rendered = null // Replace this line
 
     // TODO: Replace the placeholders in the HTML template with the rendered content
-    // Hint: Replace <!--app-head--> with rendered.head and <!--app-html--> with rendered.html
     const html = template
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)

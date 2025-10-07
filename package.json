@@ -8,7 +8,7 @@
     "dev:spa": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "echo 'TODO: Add SSR build command - build server entry with --ssr flag'",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {

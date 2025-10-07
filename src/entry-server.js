@@ -1,15 +1,10 @@
-// TODO: Import the renderToString function from Vue's server renderer
-// Hint: import { renderToString } from 'vue/server-renderer'
-
-// TODO: Import the createApp function from './main'
+import { createApp } from './main'
 
 /**
  * @param {string} _url
  */
 export async function render(_url) {
-  // TODO: Create a fresh app instance for this request
-  // Hint: Use the createApp function and destructure to get { app }
-  const { app } = null // Replace this line
+  const { app } = createApp()
 
   // passing SSR context object which will be available via useSSRContext()
   // @vitejs/plugin-vue injects code into a component's setup() that registers
@@ -17,8 +12,8 @@ export async function render(_url) {
   // components that have been instantiated during this render call.
   const ctx = {}
 
-  // TODO: Render the app to a string using Vue's server renderer
-  // Hint: Use renderToString(app, ctx)
+  // TODO: Render the app to a string using Vue
+  // Hint: Use renderToString() — https://vuejs.org/guide/scaling-up/ssr.html
   const html = null // Replace this line
 
   return { html }
