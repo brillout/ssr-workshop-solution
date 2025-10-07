@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node server",
+    "dev:spa": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
+    "build:server": "echo 'TODO: Add SSR build command - build server entry with --ssr flag'",
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
