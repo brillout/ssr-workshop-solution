@@ -1,10 +1,13 @@
-import { createSSRApp } from 'vue'
+import { createApp as createVueApp } from 'vue'
+
 import App from './App.vue'
 
 // SSR requires a fresh app instance per request, therefore we export a function
 // that creates a fresh app instance. If using Vuex, we'd also be creating a
 // fresh store here.
 export function createApp() {
-  const app = createSSRApp(App)
+  // TODO: For SSR, replace createVueApp with createSSRApp — this will make the app compatible with server-side rendering.
+  // Hint: import { createSSRApp } from 'vue' — https://vuejs.org/guide/scaling-up/ssr.html
+  const app = createVueApp(App)
   return { app }
 }
