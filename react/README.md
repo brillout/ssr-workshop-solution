@@ -63,8 +63,10 @@ Your React SSR implementation is complete when:
 
 ## 📚 Additional Resources
 
-- [React Server Components](https://react.dev/reference/react-dom/server)
 - [Vite SSR Documentation](https://vitejs.dev/guide/ssr.html)
-- [React Hydration Guide](https://react.dev/reference/react-dom/client/hydrateRoot)
+- [`react-dom/server`](https://react.dev/reference/react-dom/server)
+- [`renderToString()`](https://react.dev/reference/react-dom/server/renderToString)
+- [`react-streaming`](https://github.com/brillout/react-streaming)
+- [`hydrateRoot()`](https://react.dev/reference/react-dom/client/hydrateRoot)
 
 Good luck! 🚀
